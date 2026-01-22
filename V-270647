@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+#=============================================================================|
+# must not have the telnet package installed.
+#=============================================================================
+
+#set control_checkvariable
+#ensure errors are sent to blackhole
+subject="Telnet"
+control_check=$(dpkg -l | grep telnetd 2>/dev/null)
+
+if [[ -z  "$control_check" ]]; then
+        echo "Control Passed"
+else
+        echo "Control Failed"
+        echo "You must remove '$subject'."
+fi
