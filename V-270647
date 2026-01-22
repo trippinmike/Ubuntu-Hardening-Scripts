@@ -4,7 +4,7 @@
 # must not have the telnet package installed.
 #=============================================================================
 
-#set control_checkvariable
+#set control_check variable
 #ensure errors are sent to blackhole
 subject="Telnet"
 control_check=$(dpkg -l | grep telnetd 2>/dev/null)
