@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+#=========================|
+# must have SSH installed |
+#=========================|
+
+#set subject variable
+subject="ssh"
+
+#set control_check variable
+#ensure errors are sent to black hole
+control_check=$(dpkg -l | grep openssh 2>/dev/null)
+
+#start loop to check for contorl pass or
+#control fail
+
+if [[ -z "$control_check" ]]; then
+        echo "Control Failed"
+        echo "You must install $subject"
+else
+        echo "Control Passed"
+
+fi
